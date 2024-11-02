@@ -8,16 +8,18 @@ import jakarta.persistence.*;
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "estudiante_id")
     private Long id;
+
     private String nombre;
     private String correo;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "perfil_id", referencedColumnName = "id")
+    @JoinColumn(name = "perfil_id", referencedColumnName = "perfil_id")
     private Perfil perfil;
 
     @ManyToOne
-    @JoinColumn(name = "tutor_id", referencedColumnName = "id")
+    @JoinColumn(name = "tutor_id", referencedColumnName = "tutor_id")
     private Tutor tutor;
 
     @ManyToMany

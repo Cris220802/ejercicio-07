@@ -6,7 +6,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+// Entidad lista
 @Entity
+@Table(name = "cursos")
 public class Curso {
 
     @Id
@@ -21,7 +23,7 @@ public class Curso {
     @NotBlank(message = "la descripcion no puede estar vacía")
     private String descripcion;
 
-    @ManyToMany(mappedBy = "cursos")
+    @ManyToMany(mappedBy = "cursos", cascade = CascadeType.ALL)
     private List<Estudiante> estudiantes;
 
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)

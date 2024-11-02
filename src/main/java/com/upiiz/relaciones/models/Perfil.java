@@ -3,9 +3,12 @@ package com.upiiz.relaciones.models;
 import jakarta.persistence.*;
 
 @Entity
+// Entidad lista
+@Table(name = "perfil")
 public class Perfil {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "perfil_id")
     private Long id;
 
     private String biografia;

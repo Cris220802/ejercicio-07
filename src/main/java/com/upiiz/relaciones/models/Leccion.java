@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Size;
 public class Leccion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "leccion_id")
     private Long id;
 
     @NotBlank(message = "El titulo no puede estar vacío")
@@ -18,7 +19,7 @@ public class Leccion {
     private String contenido;
 
     @ManyToOne
-    @JoinColumn(name = "curso_id", referencedColumnName = "id")
+    @JoinColumn(name = "curso_id", referencedColumnName = "curso_id")
     private Curso curso;
 
     public Long getId() {

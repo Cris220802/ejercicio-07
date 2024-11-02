@@ -9,9 +9,11 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
+// Entidad lista
 public class Tutor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "tutor_id")
     private Long id;
 
     @NotBlank(message = "El nombre no puede estar vacío")
